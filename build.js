@@ -44,8 +44,8 @@ Candy.rand = function(arg, arg_2) {
 };
 
 Candy.toVar = function(arg, contains) {
-  arg = this.arg;
-  contains = this.contains;
+  this.arg = arg;
+  this.contains = contains;
   window[arg] = contains;
 };
 
