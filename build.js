@@ -2,7 +2,10 @@
 
 Candy JS
 
+
+
 */
+(function(Candy){
 var Candy = this.Candy = {};
 Candy.httpGet = function(url) {
     function http(URL) {
@@ -30,4 +33,17 @@ Candy.rand = function(arg, arg_2) {
         var output = Math.random() * (arg - arg_2) + arg_2;
         return output
     }
-    // Candy.rand( First Number, Second Number )
+    // Candy.rand( First Number, Second Number 
+Candy.toVar = function(arg, contains){
+    arg = this.arg;
+    contains = this.contains;
+	window[arg] = contains
+}
+
+Candy.write = function(arg){
+	    var w = document.createElement("div");
+        w.textContent = arg;
+        document.body.appendChild(w);
+} 
+
+})(Candy)
