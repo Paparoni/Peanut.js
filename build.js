@@ -69,24 +69,42 @@ Candy JS
             return false
         }
     }
-    Candy.newMenu = function(items, tags) {
-            tags = tags || ['ul', 'li'];
-            var parent = tags[0];
-            var child = tags[1];
+    Candy.newList = function(items, tags) {
+            this.tags = tags
+            this.items = items
 
-            var item, value = '';
-            for (var i = 0, l = items.length; i < l; i++) {
-                item = items[i];
-                if (/:/.test(item)) {
-                    item = items[i].split(':')[0];
-                    value = items[i].split(':')[1];
-                }
-                items[i] = '<' + child + ' ' +
-                    (value && 'value="' + value + '"') + '>' +
-                    item + '</' + child + '>';
+            // Establish the array which acts as a data source for the list
+            var listData = this.items
+
+            // Make a container element for the list - which is a <div>
+            // You don't actually need this container to make it work
+            var listContainer = document.createElement("div");
+
+            // add it to the page
+            document.getElementsByTagName("body")[0].appendChild(listContainer);
+
+            // Make the list itself which is a <ul>
+            var listElement = document.createElement(this.tag[0]);
+
+            // add it to the page
+            listContainer.appendChild(listElement);
+
+            // Set up a loop that goes through the items in listItems one at a time
+            var numberOfListItems = listData.length;
+
+            for (var i = 0; i < numberOfListItems; ++i) {
+
+                // create a <li> for each one.
+                var listItem = document.createElement(this.tags[1]);
+
+                // add the item text
+                listItem.innerHTML = listData[i];
+
+                // add listItem to the listElement
+                listElement.appendChild(listItem);
+
             }
 
-            return '<' + parent + '>' + items.join('') + '</' + parent + '>';
         }
         // Only Works with HTML... Candy.newMenu(["JAN", "FEB"], ["ul", "li"])
 
