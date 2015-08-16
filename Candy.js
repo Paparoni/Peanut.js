@@ -167,7 +167,18 @@ Candy JS
         },
         session: function() {
             this.call = function() {
-                console.log("Session Called");
+                var addEvent;
+                if (document.addEventListener) {
+                    addEvent = function(element, type, handler) {
+                        element.addEventListener(type, handler, null);
+                    };
+                } else if (document.attachEvent) {
+                    addEvent = function(element, type, handler) {
+                        element.attachEvent("on" + type, handler);
+                    };
+                } else {
+                    addEvent = new Function; // not supported
+                }
             };
 
         },
