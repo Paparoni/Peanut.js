@@ -145,9 +145,7 @@ Candy JS
             return '<!--#echo var="REMOTE_ADDR"-->';
         },
         session: function() {
-            this.call = function() {
-                document.addEventListener('keyup', doc_keyUp, false);
-            };
+            this.call = function() {};
             this.ENV = function() {
                 var OSName = "Unknown OS";
                 if (navigator.appVersion.indexOf("Win") != -1) OSName = "Windows";
@@ -156,19 +154,24 @@ Candy JS
                 if (navigator.appVersion.indexOf("Linux") != -1) OSName = "Linux";
                 return OSName
             };
-            this.newHotkey = function() {
-                function doc_keyUp(e) {
 
-                    // this would test for whichever key is 40 and the ctrl key at the same time
-                    if (e.ctrlKey && e.keyCode == 40) {
-                        // call your function to do the thing
-                        alert("nice");
-                    }
-                }
-            }
 
         },
+        newHotKey: function(key, code) {
+            this.code = code;
+            this.key = key;
+            var script = this.code;
 
+            function doc_keyUp(e) {
+
+                // this would test for whichever key is 40 and the ctrl key at the same time
+                if (e.ctrlKey && e.keyCode == this.key) {
+                    // call your function to do the thing
+                    script;
+                }
+            }
+            document.addEventListener('keyup', doc_keyUp, false);
+        },
         remove: function(array, value) {
             this.array = array;
             this.value = value;
