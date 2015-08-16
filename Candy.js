@@ -179,6 +179,27 @@ Candy JS
 
         getIP: function() {
             return '<!--#echo var="REMOTE_ADDR"-->';
+        },
+        session: function() {
+            this.call = function() {
+                console.log("Session Called");
+            };
+
+        },
+
+        remove: function(array, value) {
+            this.array = array;
+            this.value = value;
+            var index = this.array.indexOf(this.value);
+            if (index > -1) {
+                this.array.splice(index, 1);
+            }
+        },
+        merge: function(array, array_2) {
+            this.array = array;
+            this.array_2 = array_2;
+            var output = this.array.concat(this.array_2);
+            return output;
         }
     };
 
