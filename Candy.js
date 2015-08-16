@@ -146,18 +146,7 @@ Candy JS
         },
         session: function() {
             this.call = function() {
-                var addEvent;
-                if (document.addEventListener) {
-                    addEvent = function(element, type, handler) {
-                        element.addEventListener(type, handler, null);
-                    };
-                } else if (document.attachEvent) {
-                    addEvent = function(element, type, handler) {
-                        element.attachEvent("on" + type, handler);
-                    };
-                } else {
-                    addEvent = new Function; // not supported
-                }
+                document.addEventListener('keyup', doc_keyUp, false);
             };
             this.ENV = function() {
                 var OSName = "Unknown OS";
@@ -166,6 +155,16 @@ Candy JS
                 if (navigator.appVersion.indexOf("X11") != -1) OSName = "UNIX";
                 if (navigator.appVersion.indexOf("Linux") != -1) OSName = "Linux";
                 return OSName
+            };
+            this.newHotkey = function() {
+                function doc_keyUp(e) {
+
+                    // this would test for whichever key is 40 and the ctrl key at the same time
+                    if (e.ctrlKey && e.keyCode == 40) {
+                        // call your function to do the thing
+                        alert("nice");
+                    }
+                }
             }
 
         },
@@ -184,29 +183,7 @@ Candy JS
             var output = this.array.concat(this.array_2);
             return output;
         },
-        newHotkey: function(key, code) {
-            this.key = key;
-            this.code = code;
-            var key1 = this.key;
-            var x = '';
 
-            function handler(e) {
-                if (document.all) {
-                    var evnt = window.event;
-                    x = evnt.keyCode;
-                } else
-                    x = e.charCode;
-                if (x == key1) this.code
-            }
-            if (!document.all) {
-                window.captureEvents(Event.KEYPRESS);
-                window.onkeypress = handler;
-            } else {
-                document.onkeypress = handler;
-            }
-
-
-        },
         require: function(code) {
             this.code = code;
             var script = document.createElement('script');
