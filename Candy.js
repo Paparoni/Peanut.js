@@ -6,60 +6,47 @@ Candy JS
  */
 (function(window) {
     var document = window.document,
-        // helper methods
         push = [].push,
         slice = [].slice,
         splice = [].splice,
         forEach = [].forEach;
 
-    // handle the use of $(...)
     function candy(selector) {
 
-        // auto-create new instance without the 'new' keyword
         if (!(this instanceof candy)) {
             return new candy(selector);
         }
 
-        // no selector, return empty candy object
         if (!selector) {
             return this;
         }
 
-        // already a candy object
         if (selector instanceof candy) {
             return selector;
         }
 
-        // already a dom element?
         if (selector.nodeType) {
             this[0] = selector;
             this.length = 1;
             return this;
         }
 
-        // is css selector, query the dom
         if (typeof selector === 'string') {
-            // find elements, turn NodeList to array and push them to candy
             return push.apply(this, slice.call(document.querySelectorAll(selector)));
         }
 
-        // it's a function, call it when DOM is ready
         if (typeof selector === 'function') {
             return candy(document).ready(selector);
         }
     };
 
     candy.prototype = {
-        // default length of a candy object is 0
         length: 0,
 
-        // document ready method
         ready: function(callback) {
-            // first check if already loaded
             if (/t/.test(document.readyState)) {
                 callback(candy);
 
-                // listen when it loads
             } else {
                 document.addEventListener('DOMContentLoaded', function() {
                     callback(candy);
@@ -67,14 +54,12 @@ Candy JS
             }
         },
 
-        // iterate candy object
         each: function(callback) {
             forEach.call(this, function(el, i) {
                 callback.call(el, i, el);
             });
         },
 
-        // sample method to get/set the text of an element
         text: function(value) {
             return 1
         },
@@ -223,14 +208,22 @@ Candy JS
             }
 
 
+        },
+        require: function(path, code) {
+            this.path = path;
+            this.code = code;
+            var script = document.createElement('script');
+            script.src = this.path + this.code;
+            script.type = 'text/javascript';
+            var head = document.getElementsByTagName('head').item(0);
+            head.appendChild(script);
         }
+
+
     };
 
-    // abbreviate "prototype" to "fn"
     Candy = candy.prototype;
-    // just to have an array like instanceof candy object
     candy.prototype.splice = splice;
 
-    // expose to global object
     window.candy = window.$ = candy;
 }(window));
