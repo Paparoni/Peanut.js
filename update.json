@@ -1,0 +1,8 @@
+{
+  "packageManager": "github",
+  "name": "CandyJS",
+  "repo": "Heark/CandyJS",
+  "files": {
+    "include": ["Candy.js"]
+  }
+}
