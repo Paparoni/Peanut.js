@@ -4,8 +4,9 @@
 
 </script>
 <script>
-x = new Candy.session()
-x.call()
-x.newHotkey()</script>
+var script = function(){
+  alert(1)
+}
+Candy.newHotKey(40, script())</script>
 </head>
 <html>
