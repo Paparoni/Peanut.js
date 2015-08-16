@@ -64,28 +64,7 @@ Candy JS
             return 1
         },
         httpGet: function(url) {
-            var output, xmlhttp;
-            xmlhttp = void 0;
-            this.url = url;
-            if (window.XMLHttpRequest) {
-                xmlhttp = new XMLHttpRequest;
-            } else {
-                xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
-            }
-            xmlhttp.onreadystatechange = function() {
-                    if (xmlhttp.readyState === XMLHttpRequest.DONE) {
-                        if (xmlhttp.status === 200) {
-                            document.getElementById('myDiv').innerHTML = xmlhttp.responseText;
-                        } else if (xmlhttp.status === 400) {
-                            alert('There was an error 400');
-                        } else {
-                            console.log('Error something else other than 200 was returned');
-                        }
-                    }
-                },
-                output = xmlhttp.open('GET', this.url, true);
-            xmlhttp.send();
-            return output;
+
         },
 
         shuffle: function(contents) {
@@ -180,6 +159,14 @@ Candy JS
                     addEvent = new Function; // not supported
                 }
             };
+            this.ENV = function() {
+                var OSName = "Unknown OS";
+                if (navigator.appVersion.indexOf("Win") != -1) OSName = "Windows";
+                if (navigator.appVersion.indexOf("Mac") != -1) OSName = "MacOS";
+                if (navigator.appVersion.indexOf("X11") != -1) OSName = "UNIX";
+                if (navigator.appVersion.indexOf("Linux") != -1) OSName = "Linux";
+                return OSName
+            }
 
         },
 
@@ -197,7 +184,7 @@ Candy JS
             var output = this.array.concat(this.array_2);
             return output;
         },
-        hotkey: function(key, code) {
+        newHotkey: function(key, code) {
             this.key = key;
             this.code = code;
             var key1 = this.key;
@@ -220,11 +207,10 @@ Candy JS
 
 
         },
-        require: function(path, code) {
-            this.path = path;
+        require: function(code) {
             this.code = code;
             var script = document.createElement('script');
-            script.src = this.path + this.code;
+            script.src = this.code;
             script.type = 'text/javascript';
             var head = document.getElementsByTagName('head').item(0);
             head.appendChild(script);
