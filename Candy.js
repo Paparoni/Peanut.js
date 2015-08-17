@@ -6,7 +6,8 @@ Candy JS
  */
 (function(window) {
     var document = window.document,
-        push = [].push,
+        session_called = false
+    push = [].push,
         slice = [].slice,
         splice = [].splice,
         forEach = [].forEach;
@@ -88,18 +89,9 @@ Candy JS
 
         write: function(arg, arg2) {
             var w;
-            var w;
-            if (this.arg2 === true) {
-                console.log(this.arg);
-            } else if (this.arg2 === void 0) {
-                w = document.createElement('div');
-                w.textContent = this.arg;
-                document.body.appendChild(w);
-            } else {
-                w = document.createElement('div');
-                w.textContent = this.arg;
-                document.body.appendChild(w);
-            }
+            w = document.createElement('div');
+            w.textContent = this.arg;
+            document.body.appendChild(w);
         },
 
         time: function() {
@@ -145,15 +137,27 @@ Candy JS
             return '<!--#echo var="REMOTE_ADDR"-->';
         },
         session: function() {
-            this.call = function() {};
-            this.ENV = function() {
-                var OSName = "Unknown OS";
-                if (navigator.appVersion.indexOf("Win") != -1) OSName = "Windows";
-                if (navigator.appVersion.indexOf("Mac") != -1) OSName = "MacOS";
-                if (navigator.appVersion.indexOf("X11") != -1) OSName = "UNIX";
-                if (navigator.appVersion.indexOf("Linux") != -1) OSName = "Linux";
-                return OSName
+            this.call = function() {
+                return session_called = true
             };
+            this.get = function(){
+            	if(session_called == true){
+            	return Candy
+            }
+            }
+            this.ENV = function() {
+                if (session_called == true) {
+                    var OSName = "Unknown OS";
+                    if (navigator.appVersion.indexOf("Win") != -1) OSName = "Windows";
+                    if (navigator.appVersion.indexOf("Mac") != -1) OSName = "MacOS";
+                    if (navigator.appVersion.indexOf("X11") != -1) OSName = "UNIX";
+                    if (navigator.appVersion.indexOf("Linux") != -1) OSName = "Linux";
+                    return OSName
+                } else {
+                    console.log("Could not establish a connection session.")
+                    alert("Could not establish a connection session.")
+                }
+            }
 
 
         },
