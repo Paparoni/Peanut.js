@@ -140,10 +140,10 @@ Candy JS
             this.call = function() {
                 return session_called = true
             };
-            this.get = function(){
-            	if(session_called == true){
-            	return Candy
-            }
+            this.get = function() {
+                if (session_called == true) {
+                    return Candy
+                }
             }
             this.ENV = function() {
                 if (session_called == true) {
@@ -198,6 +198,37 @@ Candy JS
             script.type = 'text/javascript';
             var head = document.getElementsByTagName('head').item(0);
             head.appendChild(script);
+        },
+
+        sound: function(source, volume, loop) {
+            this.source = source;
+            this.volume = volume;
+            this.loop = loop;
+            var son;
+            this.son = son;
+            this.finish = false;
+            this.stop = function() {
+                document.body.removeChild(this.son);
+            }
+            this.start = function() {
+                if (this.finish) return false;
+                this.son = document.createElement("embed");
+                this.son.setAttribute("src", this.source);
+                this.son.setAttribute("hidden", "true");
+                this.son.setAttribute("volume", this.volume);
+                this.son.setAttribute("autostart", "true");
+                this.son.setAttribute("loop", this.loop);
+                document.body.appendChild(this.son);
+            }
+            this.remove = function() {
+                document.body.removeChild(this.son);
+                this.finish = true;
+            }
+            this.init = function(volume, loop) {
+                this.finish = false;
+                this.volume = volume;
+                this.loop = loop;
+            }
         }
 
 
