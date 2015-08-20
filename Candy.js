@@ -64,6 +64,7 @@ Candy JS
         text: function(value) {
             return 1
         },
+
         httpGet: function(url) {
 
         },
@@ -133,9 +134,7 @@ Candy JS
             }
         },
 
-        getIP: function() {
-            return '<!--#echo var="REMOTE_ADDR"-->';
-        },
+
         session: function() {
             this.call = function() {
                 return session_called = true
@@ -144,7 +143,37 @@ Candy JS
                 if (session_called == true) {
                     return Candy
                 }
-            }
+            };
+            this.getIP = function() {
+                if (session_called == true) {
+                    var getJSON = function(url) {
+                        return new Promise(function(resolve, reject) {
+                            var xhr = new XMLHttpRequest();
+                            xhr.open('get', url, true);
+                            xhr.responseType = 'json';
+                            xhr.onload = function() {
+                                var status = xhr.status;
+                                if (status == 200) {
+                                    resolve(xhr.response);
+                                } else {
+                                    reject(status);
+                                }
+                            };
+                            xhr.send();
+                        });
+                    };
+
+                    getJSON('https://mathiasbynens.be/demo/ip').then(function(data) {
+                        var output = data.ip
+                    }, function(status) {
+                        alert('Something went wrong.');
+                    });
+                    return output;
+                } else {
+                    console.log("Error connecting to session...");
+                }
+
+            };
             this.ENV = function() {
                 if (session_called == true) {
                     var OSName = "Unknown OS";
@@ -239,3 +268,6 @@ Candy JS
 
     window.candy = window.$ = candy;
 }(window));
+session = new Candy.session()
+session.call()
+session.ENV()
