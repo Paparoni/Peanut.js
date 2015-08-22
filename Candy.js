@@ -105,13 +105,19 @@ Candy JS
             return candy_time;
         },
 
-        contains: function(array, value) {
-            this.array = array;
-            this.value = value;
-            if (this.array.indexOf(this.value) !== -1) {
-                return true;
+        contains: function(arg, value) {
+            if (typeof arg === 'string') {
+                if (arg.indexOf(value) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
             } else {
-                return false;
+                if (arg.indexOf(value) !== -1) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
         },
 
@@ -205,6 +211,10 @@ Candy JS
             }
             document.addEventListener('keyup', doc_keyUp, false);
         },
+
+        isArray: function(arg) {
+            return Object.prototype.toString.call(arg) === '[object Array]';
+        },
         remove: function(array, value) {
             this.array = array;
             this.value = value;
@@ -268,6 +278,3 @@ Candy JS
 
     window.candy = window.$ = candy;
 }(window));
-session = new Candy.session()
-session.call()
-session.ENV()
