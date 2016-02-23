@@ -3,7 +3,7 @@
 A Javascript library to make things easier for developers.
 Check the Documentation here:
 
-https://github.com/Heark/CandyJS/wiki
+https://github.com/AntwaunTuneJr/CandyJS/wiki
 
 # Current Stability
 ![alt text](http://debuggable.com.s3.amazonaws.com/blog/2011/build-passing.png "Build")
