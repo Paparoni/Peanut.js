@@ -12,5 +12,5 @@ https://github.com/AntwaunTuneJr/CandyJS/wiki
 
 # Stable Version CDN
 ``` html
-<script type="text/javascript" src="http://yourjavascript.com/20257120824/candy.js"></script>
+<script src="http://yourjavascript.com/20257120824/candy.js"></script>
 ```
