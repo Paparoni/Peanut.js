@@ -12,5 +12,4 @@ https://github.com/AntwaunTuneJr/Peanut.js/wiki
 
 # Stable Version CDN
 ``` html
-<script src="http://googledrive.com/host/0B8_oN7R2vgklZHJwUXVqU1hYbnM/peanut.js"></script>
-```
+<script src="https://googledrive.com/host/0B8_oN7R2vgklZHJwUXVqU1hYbnM/peanut.js"></script>```
