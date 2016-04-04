@@ -1,4 +1,4 @@
-# Peanut.js ![alt text](https://ma.twimg.com/help/1307051362_737 "Official")
+# Peanut.js ![alt text](https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_verified_user_48px-128.png "Official")
 
 A Javascript library to make things easier for developers.
 Check the Documentation here:
