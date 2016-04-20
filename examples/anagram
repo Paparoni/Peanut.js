@@ -1,0 +1,1 @@
+var output=[],split_word=[],anagram=function(r){for(var t=0;t<r.length;t++)split_word.push(r[t]);for(var o=0;o<split_word.length;o++)output.push(Peanut.shuffle(split_word[o]));return output.reverse().sort(Peanut.rand(1,100)).join("")};console.log(anagram("java"));
