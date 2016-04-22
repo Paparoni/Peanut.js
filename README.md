@@ -6,7 +6,7 @@ Check the Documentation here:
 https://github.com/AntwaunTuneJr/Peanut.js/wiki
 
 # Current Stability
-![alt text](http://debuggable.com.s3.amazonaws.com/blog/2011/build-passing.png "Working!")
+[![Build Status](https://travis-ci.org/AntwaunTuneJr/Peanut.js.svg?branch=master)](https://travis-ci.org/AntwaunTuneJr/Peanut.js)
 
 
 
