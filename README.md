@@ -6,7 +6,7 @@ Check the Documentation here:
 https://github.com/AntwaunTuneJr/Peanut.js/wiki
 
 # Current Stability
-[![Build Status](https://travis-ci.org/AntwaunTuneJr/Peanut.js.svg?branch=master)](https://travis-ci.org/AntwaunTuneJr/Peanut.js)
+[![Build Status](https://travis-ci.org/Cleomedes/Peanut.js.svg?branch=master)](https://travis-ci.org/AntwaunTuneJr/Peanut.js)
 
 
 
