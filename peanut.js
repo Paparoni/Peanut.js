@@ -21,7 +21,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-
 (function(window) {
     var document = window.document,
         session_called = false;
@@ -75,10 +74,27 @@ SOFTWARE.
             return 1;
         },
         httpGet: function(url) {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("GET", url, false);
-            xmlHttp.send(null);
-            return xmlHttp.responseText;
+            this.file = file;
+            var phttp = new XMLHttpRequest();
+            phttp.open('GET', file, true);
+            phttp.onreadystatechange = function() {
+                if (phttp.readyState == 4 && phttp.status == "200") {
+                    return officejson.responseText;
+                }
+            };
+            officejson.send(null);
+        },
+        loadJSON: function(file, callback) {
+            this.file = file;
+            var officejson = new XMLHttpRequest();
+            officejson.overrideMimeType("application/json");
+            officejson.open('GET', file, true);
+            officejson.onreadystatechange = function() {
+                if (officejson.readyState == 4 && officejson.status == "200") {
+                    callback(officejson.responseText);
+                }
+            };
+            officejson.send(null);
         },
         shuffle: function(contents) {
             var output;
