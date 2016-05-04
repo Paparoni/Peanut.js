@@ -91,6 +91,7 @@ SOFTWARE.
             officejson.open('GET', file, true);
             officejson.onreadystatechange = function() {
                 if (officejson.readyState == 4 && officejson.status == "200") {
+                  console.warn("Retrieved data from "+file);
                     callback(officejson.responseText);
                 }
             };
