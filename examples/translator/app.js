@@ -1,3 +1,10 @@
+/*
+
+ Simple JSON translator
+ Translates any language to Spanish, English, or Russian
+ Created by: Cleomedes for Peanut.js function testing.
+ 
+ */
 var log_array = [];
 
 function log(text) {
