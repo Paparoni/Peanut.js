@@ -11,13 +11,13 @@ https://github.com/AntwaunTuneJr/Peanut.js/wiki
 
 # How to use
 
-## Stable Version CDN
-### Include this in the `<head></head>` section of your HTML file.
+### Stable Version CDN
+ Include this in the `<head></head>` section of your HTML file.
 ``` html
 <script src="http://cdn.bloob.ga/peanut.js"></script> 
 ```
 
-## Use code
+### Use code
 Include `peanut.js` or `peanut.min.js` file into your project's directory
 Then include the line below in the `<head></head>` section of your HTML file.
 ``` html
