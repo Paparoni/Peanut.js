@@ -16,6 +16,10 @@ https://github.com/AntwaunTuneJr/Peanut.js/wiki
 ``` html
 <script src="http://cdn.bloob.ga/peanut.js"></script> 
 ```
+or this line (minified version)
+``` html
+<script src="http://cdn.bloob.ga/peanut.min.js"></script> 
+```
 
 ### Use code
 Include `peanut.js` or `peanut.min.js` file into your project's directory
