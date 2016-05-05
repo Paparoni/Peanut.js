@@ -37,7 +37,7 @@ $(document).ready(function() {
                                 var translate_query = result
                                 Peanut.loadJSON("https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20160503T130721Z.febfceae36b8944c.5671ad1d6b9648cadc9815344695c9448a29c665&lang=" + encodeURIComponent(lang) + "-es&text=" + encodeURIComponent(translate_query), function(response) {
                                     $("#translated").html("<font color=\"blue\" size=14><center>" + JSON.parse(response).text + "</center></font>");
-                                    log(Peanut.time() + ": Translated \"" + result + "\" to \"" + JSON.parse(response).text + "\"");
+                                    log(Peanut.time() + ": Translated \"" + result + "\" to \"" + JSON.parse(response).text + "\"\r\n");
                                 });
                             })
 
@@ -55,7 +55,7 @@ $(document).ready(function() {
                                 var translate_query = result
                                 Peanut.loadJSON("https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20160503T130721Z.febfceae36b8944c.5671ad1d6b9648cadc9815344695c9448a29c665&lang=" + encodeURIComponent(lang) + "-en&text=" + encodeURIComponent(translate_query), function(response) {
                                     $("#translated").html("<font color=\"blue\" size=14><center>" + JSON.parse(response).text + "</center></font>");
-                                    log(Peanut.time() + ": Translated \"" + result + "\" to \"" + JSON.parse(response).text + "\"");
+                                    log(Peanut.time() + ": Translated \"" + result + "\" to \"" + JSON.parse(response).text + "\"\r\n");
 
 
                                 });
@@ -76,7 +76,7 @@ $(document).ready(function() {
                                 Peanut.loadJSON("https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20160503T130721Z.febfceae36b8944c.5671ad1d6b9648cadc9815344695c9448a29c665&lang=" + encodeURIComponent(lang) + "-ru&text=" + encodeURIComponent(translate_query), function(response) {
                                     $("#translated").html("<font color=\"blue\" size=14><center>" + JSON.parse(response).text + "</center></font>");
 
-                                    log(Peanut.time() + ": Translated \"" + result + "\" to \"" + JSON.parse(response).text + "\"");
+                                    log(Peanut.time() + ": Translated \"" + result + "\" to \"" + JSON.parse(response).text + "\"\r\n");
 
                                 });
                             })
