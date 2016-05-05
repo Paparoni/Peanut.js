@@ -9,7 +9,17 @@ https://github.com/AntwaunTuneJr/Peanut.js/wiki
 [![Build Status](https://travis-ci.org/Cleomedes/Peanut.js.svg?branch=master)](https://travis-ci.org/AntwaunTuneJr/Peanut.js)
 
 
+# How to use
 
-# Stable Version CDN
+## Stable Version CDN
+### Include this in the `<head></head>` section of your HTML file.
 ``` html
-<script src="http://cdn.bloob.ga/peanut.js"></script>```
+<script src="http://cdn.bloob.ga/peanut.js"></script> 
+```
+
+## Use code
+Include `peanut.js` or `peanut.min.js` file into your project's directory
+Then include the line below in the `<head></head>` section of your HTML file.
+``` html
+<script src="peanut.js"></script> 
+```
