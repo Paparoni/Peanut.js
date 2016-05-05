@@ -22,7 +22,7 @@ or this line (minified version)
 ```
 
 ### Use code
-Include `peanut.js` or `peanut.min.js` file into your project's directory
+Include `peanut.js` or `peanut.min.js` from the `src` folder into your project's directory
 Then include the line below in the `<head></head>` section of your HTML file.
 ``` html
 <script src="peanut.js"></script> 
