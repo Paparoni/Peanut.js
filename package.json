@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "release": "beta",
   "description": "Simple JavaScript library for simple to use functions.",
-  "author": "Antwaun Tune Jr. <antwauntune@bloob.ga> (http://www.bloob.ga)",
+  "author": "Cleomedes",
   "logo": "",
   "homepage": "http://bloob.ga",
   "bugs": "https://github.com/AntwaunTuneJr/Peanut.js/issues",
@@ -12,6 +12,6 @@
   "main": "./inter.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AntwaunTuneJr/Peanut.js.git"
+    "url": "https://github.com/Cleomedes/Peanut.js.git"
   }
 }
