@@ -6,7 +6,7 @@
   "author": "Cleomedes",
   "logo": "",
   "homepage": "http://bloob.ga",
-  "bugs": "https://github.com/AntwaunTuneJr/Peanut.js/issues",
+  "bugs": "https://github.com/Cleomedes/Peanut.js/issues",
   "license": "MIT",
   "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
   "main": "./inter.js",
