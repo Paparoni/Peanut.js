@@ -1,5 +1,9 @@
 # Peanut.js ![alt text](http://www.whichsocialmedia.com/wp-content/uploads/2013/05/facebook-verified-check-mark.png "Official")
 
+Created by: Antwaun Tune<br/> 
+Email: <tuneantwaun@gmail.com><br/>
+Computer Science Student
+
 A Javascript library to make things easier for developers.
 Check the Documentation here:
 
